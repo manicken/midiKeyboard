@@ -1,0 +1,117 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'uartBaudRateGenerator:inst|clkOut'
+Slack : -3.959
+TNS   : -124.177
+
+Type  : Slow Model Setup 'clockDivider:inst1|clkOut'
+Slack : -3.188
+TNS   : -179.763
+
+Type  : Slow Model Setup 'master_clock'
+Slack : -2.466
+TNS   : -38.268
+
+Type  : Slow Model Setup 'sevenSegmentDriver:inst5|digitIndex[0]'
+Slack : -2.064
+TNS   : -7.015
+
+Type  : Slow Model Hold 'clockDivider:inst1|clkOut'
+Slack : -3.309
+TNS   : -4.854
+
+Type  : Slow Model Hold 'sevenSegmentDriver:inst5|digitIndex[0]'
+Slack : -3.290
+TNS   : -10.856
+
+Type  : Slow Model Hold 'master_clock'
+Slack : -2.645
+TNS   : -5.263
+
+Type  : Slow Model Hold 'uartBaudRateGenerator:inst|clkOut'
+Slack : 0.499
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'clockDivider:inst1|clkOut'
+Slack : -2.379
+TNS   : -39.472
+
+Type  : Slow Model Removal 'clockDivider:inst1|clkOut'
+Slack : 1.584
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clockDivider:inst1|clkOut'
+Slack : -2.567
+TNS   : -256.858
+
+Type  : Slow Model Minimum Pulse Width 'master_clock'
+Slack : -1.941
+TNS   : -36.073
+
+Type  : Slow Model Minimum Pulse Width 'uartBaudRateGenerator:inst|clkOut'
+Slack : -0.742
+TNS   : -59.360
+
+Type  : Slow Model Minimum Pulse Width 'sevenSegmentDriver:inst5|digitIndex[0]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'clockDivider:inst1|clkOut'
+Slack : -1.460
+TNS   : -35.908
+
+Type  : Fast Model Setup 'uartBaudRateGenerator:inst|clkOut'
+Slack : -0.629
+TNS   : -14.941
+
+Type  : Fast Model Setup 'sevenSegmentDriver:inst5|digitIndex[0]'
+Slack : -0.425
+TNS   : -1.275
+
+Type  : Fast Model Setup 'master_clock'
+Slack : -0.205
+TNS   : -0.872
+
+Type  : Fast Model Hold 'clockDivider:inst1|clkOut'
+Slack : -1.467
+TNS   : -2.251
+
+Type  : Fast Model Hold 'master_clock'
+Slack : -1.423
+TNS   : -2.818
+
+Type  : Fast Model Hold 'sevenSegmentDriver:inst5|digitIndex[0]'
+Slack : -1.377
+TNS   : -4.761
+
+Type  : Fast Model Hold 'uartBaudRateGenerator:inst|clkOut'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'clockDivider:inst1|clkOut'
+Slack : -0.368
+TNS   : -6.814
+
+Type  : Fast Model Removal 'clockDivider:inst1|clkOut'
+Slack : 0.669
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clockDivider:inst1|clkOut'
+Slack : -1.627
+TNS   : -165.890
+
+Type  : Fast Model Minimum Pulse Width 'master_clock'
+Slack : -1.380
+TNS   : -24.380
+
+Type  : Fast Model Minimum Pulse Width 'uartBaudRateGenerator:inst|clkOut'
+Slack : -0.500
+TNS   : -40.000
+
+Type  : Fast Model Minimum Pulse Width 'sevenSegmentDriver:inst5|digitIndex[0]'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

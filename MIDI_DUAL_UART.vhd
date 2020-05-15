@@ -1,0 +1,109 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.all;
+USE IEEE.STD_LOGIC_UNSIGNED.all;
+
+ENTITY midi_dual_uart IS
+    PORT (
+        clk: IN STD_LOGIC; -- master syncronos clock
+        mClear: IN STD_LOGIC; -- master clear
+
+        midiChNr: IN STD_LOGIC_VECTOR(3 downto 0);
+                
+        extFifoEmptyIn: IN STD_LOGIC; -- input to tell if the FIFO is empty
+        extFifoRdOut: BUFFER STD_LOGIC; -- output used for read from FIFO
+        extFifoDataIn: IN STD_LOGIC_VECTOR(14 downto 0); -- keyNumber, keyVelocity, keyState
+
+        midiUartTxOut: OUT STD_LOGIC; -- MIDI serial data output (bit7 first)
+        uartTxOut: OUT STD_LOGIC; -- standard UART data output (bit0 first)
+        uartSendingOut: OUT STD_LOGIC --debug only
+    );
+END midi_dual_uart;
+
+ARCHITECTURE midi_dual_uart_arch OF midi_dual_uart IS
+
+    SUBTYPE uartBuffert_width IS STD_LOGIC_VECTOR(7 downto 0);
+    TYPE uartBuffert_lenght IS ARRAY(1 downto 0) OF uartBuffert_width;
+    SIGNAL uartBuffert: uartBuffert_lenght;
+    SIGNAL uartByteIndex: STD_LOGIC_VECTOR(1 downto 0);
+    SIGNAL uartBitIndex: STD_LOGIC_VECTOR(3 downto 0);
+    SIGNAL midiUartTxReg: STD_LOGIC_VECTOR(7 downto 0);
+    SIGNAL uartTxReg: STD_LOGIC_VECTOR(7 downto 0);
+    --SIGNAL extFifoRdOut_temp: STD_LOGIC;
+    SIGNAL uartSending: STD_LOGIC;
+
+BEGIN PROCESS (clk, mClear, extFifoEmptyIn, extFifoDataIn)
+    -- variable declarations
+        
+    BEGIN
+        if (mClear = '1') then
+            uartByteIndex <= "00";
+            uartBitIndex <= "0000";
+            midiUartTxOut <= '1'; -- uart idle state
+            uartTxOut <= '1'; -- uart idle state
+            uartSending <= '0';
+            extFifoRdOut <= '1'; -- active low
+        elsif (clk'EVENT and clk = '1' and extFifoEmptyIn = '1' and extFifoRdOut = '1' and uartSending = '0') then -- not empty activate read sequence
+            extFifoRdOut <= '0'; -- active low
+        elsif (clk'EVENT and clk = '1' and extFifoRdOut = '0' and uartSending = '0') then -- end of fifo read sequence
+            
+            midiUartTxReg(7) <= '1'; -- allways one
+            midiUartTxReg(6) <= '0'; -- allways zero
+            midiUartTxReg(5) <= '0'; -- allways zero
+            midiUartTxReg(4) <= extFifoDataIn(14); -- keyState
+            midiUartTxReg(3 downto 0) <= midiChNr(3 downto 0);
+            uartTxReg(7) <= '1'; -- allways one
+            uartTxReg(6) <= '0'; -- allways zero
+            uartTxReg(5) <= '0'; -- allways zero
+            uartTxReg(4) <= extFifoDataIn(14); -- keyState
+            uartTxReg(3 downto 0) <= midiChNr(3 downto 0);
+            
+            uartBuffert(1)(7) <= '0'; -- allways zero
+            uartBuffert(1)(6 downto 0) <= extFifoDataIn(13 downto 7);
+            uartBuffert(0)(7) <= '0'; -- allways zero
+            uartBuffert(0)(6 downto 0) <= extFifoDataIn(6 downto 0);
+            extFifoRdOut <= '1';
+            uartSending <= '1';
+            uartByteIndex <= "00";
+            uartBitIndex <= "0000";
+            midiUartTxOut <= '1'; -- uart idle state
+            uartTxOut <= '1';
+            --uartTxReg <= uartBuffert(0);
+            
+        elsif (clk'EVENT and clk = '1' and uartSending = '1') then
+            if (uartBitIndex = 0) then
+                midiUartTxOut <= '0'; -- start bit
+                uartTxOut <= '0'; -- start bit
+                uartBitIndex <= "0001"; -- set next index value
+            elsif (uartBitIndex < 9 and uartBitIndex /= 0) then
+                
+                midiUartTxOut <= midiUartTxReg(7); -- MSB is sent first
+                midiUartTxReg(7 downto 1) <= midiUartTxReg(6 downto 0); -- shift bits to the left
+                
+                uartTxOut <= uartTxReg(0); -- LSB is sent first
+                for i in 0 to 6 loop 
+                    uartTxReg(i) <= uartTxReg(i + 1);
+                end loop;
+                
+                uartBitIndex <= uartBitIndex + "0001";
+            elsif (uartBitIndex = 9) then
+            --    uartBitIndex <= "1010";
+            --    uartTx <= '1'; -- stop bit
+            --elsif (uartBitIndex = 10) then
+                uartBitIndex <= "0000";
+                midiUartTxOut <= '1'; -- stop bit
+                uartTxOut <= '1'; -- stop bit
+                if (uartByteIndex /= 2) then -- send next byte
+                    uartByteIndex <= uartByteIndex + "01";
+                    midiUartTxReg <= uartBuffert(1);
+                    uartTxReg <= uartBuffert(1);
+                    uartBuffert(1) <= uartBuffert(0);
+                else -- stop sending
+                    uartByteIndex <= "00";
+                    uartSending <= '0';
+                end if;
+            end if;
+        end if;
+        --extFifoRdOut <= extFifoRdOut_temp;
+        uartSendingOut <= uartSending;
+    END PROCESS;
+END midi_dual_uart_arch;
