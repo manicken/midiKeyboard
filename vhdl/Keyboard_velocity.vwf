@@ -1,0 +1,997 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+
+/*
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+
+HEADER
+{
+	VERSION = 1;
+	TIME_UNIT = ns;
+	PRINT_OPTIONS = "Print_options_version 6\
+range_start 0ps\
+range_end 20.0ms\
+width 1\
+names_percentage 25\
+comments 1\
+grid_lines 1\
+time_bars 1\
+name_every_page 0\
+expand_groups 0\
+print_all 1\
+print_row_height 100";
+	DATA_OFFSET = 0.0;
+	DATA_DURATION = 50000000.0;
+	SIMULATION_TIME = 50000000.0;
+	GRID_PHASE = 0.0;
+	GRID_PERIOD = 1000.0;
+	GRID_DUTY_CYCLE = 50;
+}
+
+SIGNAL("master_clear")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("par2serClkOut")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("par2serLatchOut")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("shiftInA")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("shiftInB")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("uartSending")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("uartTx")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("keyBuffers:inst4|extFifoWr")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "";
+}
+
+SIGNAL("midi_uart:inst3|extFifoRdOut")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "";
+}
+
+SIGNAL("midiChNr[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("midiChNr[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("midiChNr[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("midiChNr[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("keyScanClock")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("uart_clock")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("digit1strobe")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digit2strobe")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digit3strobe")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digit4strobe")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("keyPressed")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("fifoFull")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digitData[6]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digitData[5]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digitData[4]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digitData[3]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digitData[2]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digitData[1]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("digitData[0]")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("keyBuffers:inst4|seqState")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = BURIED;
+	PARENT = "";
+}
+
+TRANSITION_LIST("master_clear")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 2000.0;
+		LEVEL 1 FOR 49998000.0;
+	}
+}
+
+TRANSITION_LIST("par2serClkOut")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 32016.333;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 64000.0;
+			LEVEL 0 FOR 64000.0;
+		}
+		LEVEL 1 FOR 47983.667;
+	}
+}
+
+TRANSITION_LIST("par2serLatchOut")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 64016.328;
+		NODE
+		{
+			REPEAT = 4;
+			LEVEL 0 FOR 64000.0;
+			LEVEL 1 FOR 11200000.0;
+		}
+		LEVEL 0 FOR 64000.0;
+		LEVEL 1 FOR 4815983.672;
+	}
+}
+
+TRANSITION_LIST("shiftInA")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 128000.0;
+		LEVEL 1 FOR 128000.0;
+		LEVEL 0 FOR 11136000.0;
+		LEVEL 1 FOR 128000.0;
+		LEVEL 0 FOR 11136000.0;
+		LEVEL 1 FOR 128000.0;
+		LEVEL 0 FOR 27216000.0;
+	}
+}
+
+TRANSITION_LIST("shiftInB")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 11392000.0;
+		LEVEL 1 FOR 128000.0;
+		LEVEL 0 FOR 38480000.0;
+	}
+}
+
+TRANSITION_LIST("uartSending")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("uartTx")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("keyBuffers:inst4|extFifoWr")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("midi_uart:inst3|extFifoRdOut")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("midiChNr[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("midiChNr[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("midiChNr[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("midiChNr[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("keyScanClock")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 781;
+			LEVEL 0 FOR 32000.0;
+			LEVEL 1 FOR 32000.0;
+		}
+		LEVEL 0 FOR 16000.0;
+	}
+}
+
+TRANSITION_LIST("uart_clock")
+{
+	NODE
+	{
+		REPEAT = 1;
+		NODE
+		{
+			REPEAT = 1562;
+			LEVEL 0 FOR 16000.0;
+			LEVEL 1 FOR 16000.0;
+		}
+		LEVEL 0 FOR 16000.0;
+	}
+}
+
+TRANSITION_LIST("digit1strobe")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 16020.517;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 96000.0;
+			LEVEL 0 FOR 32000.0;
+		}
+		LEVEL 1 FOR 63979.483;
+	}
+}
+
+TRANSITION_LIST("digit2strobe")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 16019.694;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 0 FOR 32000.0;
+			LEVEL 1 FOR 96000.0;
+		}
+		LEVEL 0 FOR 32000.0;
+		LEVEL 1 FOR 31980.306;
+	}
+}
+
+TRANSITION_LIST("digit3strobe")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 48018.406;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 32000.0;
+			LEVEL 0 FOR 96000.0;
+		}
+		LEVEL 1 FOR 31981.594;
+	}
+}
+
+TRANSITION_LIST("digit4strobe")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 80019.679;
+		NODE
+		{
+			REPEAT = 389;
+			LEVEL 1 FOR 32000.002;
+			LEVEL 0 FOR 95999.998;
+		}
+		LEVEL 1 FOR 32000.002;
+		LEVEL 0 FOR 95980.319;
+	}
+}
+
+TRANSITION_LIST("keyPressed")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("fifoFull")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 50000000.0;
+	}
+}
+
+TRANSITION_LIST("digitData[6]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 48011.913;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 0 FOR 64000.0;
+			LEVEL 1 FOR 2.609;
+			LEVEL 0 FOR 2.181;
+			LEVEL 1 FOR 63995.21;
+		}
+		LEVEL 0 FOR 31988.087;
+	}
+}
+
+TRANSITION_LIST("digitData[5]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 48011.141;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 32003.442;
+			LEVEL 0 FOR 1.152;
+			LEVEL 1 FOR 31995.406;
+			LEVEL 0 FOR 3.432;
+			LEVEL 1 FOR 0.59;
+			LEVEL 0 FOR 63995.978;
+		}
+		LEVEL 1 FOR 31988.859;
+	}
+}
+
+TRANSITION_LIST("digitData[4]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 48011.788;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 32004.192;
+			LEVEL 0 FOR 1.152;
+			LEVEL 1 FOR 31994.656;
+			LEVEL 0 FOR 2.397;
+			LEVEL 1 FOR 1.005;
+			LEVEL 0 FOR 63996.598;
+		}
+		LEVEL 1 FOR 31988.212;
+	}
+}
+
+TRANSITION_LIST("digitData[3]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 48010.436;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 32006.026;
+			LEVEL 0 FOR 1.152;
+			LEVEL 1 FOR 31992.822;
+			LEVEL 0 FOR 3.812;
+			LEVEL 1 FOR 1.365;
+			LEVEL 0 FOR 63994.823;
+		}
+		LEVEL 1 FOR 31989.564;
+	}
+}
+
+TRANSITION_LIST("digitData[2]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 48014.731;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 64000.0;
+			LEVEL 0 FOR 64000.0;
+		}
+		LEVEL 1 FOR 31985.269;
+	}
+}
+
+TRANSITION_LIST("digitData[1]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 48010.431;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 64000.0;
+			LEVEL 0 FOR 4.608;
+			LEVEL 1 FOR 0.394;
+			LEVEL 0 FOR 63994.998;
+		}
+		LEVEL 1 FOR 31989.569;
+	}
+}
+
+TRANSITION_LIST("digitData[0]")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 48014.199;
+		NODE
+		{
+			REPEAT = 390;
+			LEVEL 1 FOR 32001.671;
+			LEVEL 0 FOR 1.152;
+			LEVEL 1 FOR 31998.137;
+			LEVEL 0 FOR 63999.04;
+		}
+		LEVEL 1 FOR 31985.801;
+	}
+}
+
+TRANSITION_LIST("keyBuffers:inst4|seqState")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL U FOR 50000000.0;
+	}
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyScanClock";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 0;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "uart_clock";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 1;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "master_clear";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 2;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyBuffers:inst4|seqState";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 3;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "par2serClkOut";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 4;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "par2serLatchOut";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 5;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "shiftInA";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 6;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "shiftInB";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 7;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "uartSending";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 8;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "uartTx";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 9;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyBuffers:inst4|extFifoWr";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 10;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "midi_uart:inst3|extFifoRdOut";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 11;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "midiChNr[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 12;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "midiChNr[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 13;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "midiChNr[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 14;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "midiChNr[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = ASCII;
+	TREE_INDEX = 15;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digit1strobe";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 16;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digit2strobe";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 17;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digit3strobe";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 18;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digit4strobe";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 19;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "keyPressed";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 20;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "fifoFull";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 21;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digitData[6]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 22;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digitData[5]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 23;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digitData[4]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 24;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digitData[3]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 25;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digitData[2]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 26;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digitData[1]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 27;
+	TREE_LEVEL = 0;
+}
+
+DISPLAY_LINE
+{
+	CHANNEL = "digitData[0]";
+	EXPAND_STATUS = COLLAPSED;
+	RADIX = Binary;
+	TREE_INDEX = 28;
+	TREE_LEVEL = 0;
+}
+
+TIME_BAR
+{
+	TIME = 26425;
+	MASTER = TRUE;
+}
+;

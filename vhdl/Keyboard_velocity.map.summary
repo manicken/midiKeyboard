@@ -1,0 +1,9 @@
+Analysis & Synthesis Status : Successful - Sun Jan 26 19:04:05 2020
+Quartus II Version : 8.1 Build 163 10/28/2008 SJ Web Edition
+Revision Name : Keyboard_velocity
+Top-level Entity Name : Main_with_internal_fifo
+Family : MAX II
+Total logic elements : 1,665
+Total pins : 27
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

@@ -1,0 +1,137 @@
+Flow report for Keyboard_velocity
+Sun Jan 26 19:04:28 2020
+Quartus II Version 8.1 Build 163 10/28/2008 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2008 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------+
+; Flow Summary                                                      ;
++-------------------------+-----------------------------------------+
+; Flow Status             ; Successful - Sun Jan 26 19:04:28 2020   ;
+; Quartus II Version      ; 8.1 Build 163 10/28/2008 SJ Web Edition ;
+; Revision Name           ; Keyboard_velocity                       ;
+; Top-level Entity Name   ; Main_with_internal_fifo                 ;
+; Family                  ; MAX II                                  ;
+; Device                  ; EPM1270T144C5                           ;
+; Timing Models           ; Final                                   ;
+; Met timing requirements ; Yes                                     ;
+; Total logic elements    ; 1,238 / 1,270 ( 97 % )                  ;
+; Total pins              ; 27 / 116 ( 23 % )                       ;
+; Total virtual pins      ; 0                                       ;
+; UFM blocks              ; 0 / 1 ( 0 % )                           ;
++-------------------------+-----------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 01/26/2020 19:03:57 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; Keyboard_velocity   ;
++-------------------+---------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                             ;
++---------------------------------------+-----------------------------------------------------------------+-------------------+-------------------------+----------------------+
+; Assignment Name                       ; Value                                                           ; Default Value     ; Entity Name             ; Section Id           ;
++---------------------------------------+-----------------------------------------------------------------+-------------------+-------------------------+----------------------+
+; COMPILER_SIGNATURE_ID                 ; 128454781438328.158006183704396                                 ; --                ; --                      ; --                   ;
+; EDA_DESIGN_ENTRY_SYNTHESIS_TOOL       ; ViewDraw                                                        ; <None>            ; InputStage.bdf          ; --                   ;
+; EDA_INPUT_DATA_FORMAT                 ; Edif                                                            ; --                ; InputStage.bdf          ; eda_design_synthesis ;
+; EDA_INPUT_GND_NAME                    ; Gnd                                                             ; --                ; InputStage.bdf          ; eda_design_synthesis ;
+; EDA_INPUT_VCC_NAME                    ; Vdd                                                             ; --                ; InputStage.bdf          ; eda_design_synthesis ;
+; EDA_LMF_FILE                          ; vwl_bas.lmf                                                     ; --                ; InputStage.bdf          ; eda_design_synthesis ;
+; EDA_OUTPUT_DATA_FORMAT                ; None                                                            ; --                ; --                      ; eda_simulation       ;
+; EDA_RUN_TOOL_AUTOMATICALLY            ; Off                                                             ; --                ; --                      ; eda_simulation       ;
+; EDA_RUN_TOOL_AUTOMATICALLY            ; Off                                                             ; --                ; InputStage.bdf          ; eda_design_synthesis ;
+; EDA_SHOW_LMF_MAPPING_MESSAGES         ; Off                                                             ; --                ; InputStage.bdf          ; eda_design_synthesis ;
+; HDL_MESSAGE_LEVEL                     ; Level3                                                          ; Level2            ; --                      ; --                   ;
+; IP_TOOL_NAME                          ; LPM_FIFO+                                                       ; --                ; --                      ; --                   ;
+; IP_TOOL_VERSION                       ; 8.1                                                             ; --                ; --                      ; --                   ;
+; MAXII_OPTIMIZATION_TECHNIQUE          ; Area                                                            ; Balanced          ; --                      ; --                   ;
+; MAX_CORE_JUNCTION_TEMP                ; 85                                                              ; --                ; --                      ; --                   ;
+; MIN_CORE_JUNCTION_TEMP                ; 0                                                               ; --                ; --                      ; --                   ;
+; MISC_FILE                             ; A:/_Projects/synth/CPLD design/Keyboard_velocity.dpf            ; --                ; --                      ; --                   ;
+; MISC_FILE                             ; A:/_Projects/synth/CPLD design - 2020 8.1/Keyboard_velocity.dpf ; --                ; --                      ; --                   ;
+; MISC_FILE                             ; Z:/_Projects/synth/CPLD design - 2020 8.1/Keyboard_velocity.dpf ; --                ; --                      ; --                   ;
+; MISC_FILE                             ; scfifo0.bsf                                                     ; --                ; --                      ; --                   ;
+; MISC_FILE                             ; scfifo0.cmp                                                     ; --                ; --                      ; --                   ;
+; MUX_RESTRUCTURE                       ; On                                                              ; Auto              ; --                      ; --                   ;
+; PARTITION_COLOR                       ; 16764057                                                        ; --                ; Main_with_internal_fifo ; Top                  ;
+; PARTITION_FITTER_PRESERVATION_LEVEL   ; PLACEMENT_AND_ROUTING                                           ; --                ; Main_with_internal_fifo ; Top                  ;
+; PARTITION_NETLIST_TYPE                ; SOURCE                                                          ; --                ; Main_with_internal_fifo ; Top                  ;
+; POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR ; 3.3V                                                            ; --                ; --                      ; --                   ;
+; RTLV_SIMPLIFIED_LOGIC                 ; Off                                                             ; On                ; --                      ; --                   ;
+; TOP_LEVEL_ENTITY                      ; Main_with_internal_fifo                                         ; Keyboard_velocity ; --                      ; --                   ;
++---------------------------------------+-----------------------------------------------------------------+-------------------+-------------------------+----------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                           ;
++-------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name             ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++-------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis    ; 00:00:09     ; 1.0                     ; 261 MB              ; 00:00:07                           ;
+; Fitter                  ; 00:00:13     ; 1.0                     ; 229 MB              ; 00:00:13                           ;
+; Assembler               ; 00:00:00     ; 1.0                     ; 201 MB              ; 00:00:00                           ;
+; Classic Timing Analyzer ; 00:00:02     ; 1.0                     ; 176 MB              ; 00:00:02                           ;
+; Total                   ; 00:00:24     ; --                      ; --                  ; 00:00:22                           ;
++-------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                          ;
++-------------------------+------------------+---------------+------------+----------------+
+; Module Name             ; Machine Hostname ; OS Name       ; OS Version ; Processor type ;
++-------------------------+------------------+---------------+------------+----------------+
+; Analysis & Synthesis    ; einstein         ; Windows Vista ; 6.2        ; x86_64         ;
+; Fitter                  ; einstein         ; Windows Vista ; 6.2        ; x86_64         ;
+; Assembler               ; einstein         ; Windows Vista ; 6.2        ; x86_64         ;
+; Classic Timing Analyzer ; einstein         ; Windows Vista ; 6.2        ; x86_64         ;
++-------------------------+------------------+---------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off Keyboard_velocity -c Keyboard_velocity
+quartus_fit --read_settings_files=off --write_settings_files=off Keyboard_velocity -c Keyboard_velocity
+quartus_asm --read_settings_files=off --write_settings_files=off Keyboard_velocity -c Keyboard_velocity
+quartus_tan --read_settings_files=off --write_settings_files=off Keyboard_velocity -c Keyboard_velocity
+
+
+
