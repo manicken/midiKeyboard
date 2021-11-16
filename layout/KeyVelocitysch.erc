@@ -1,0 +1,40 @@
+EAGLE Version 4.13 Copyright (c) 1988-2004 CadSoft
+
+Electrical Rule Check for I:/Desktop/KeyVelocitysch.sch at 2011-09-20 01:00:24 
+
+WARNING: Sheet 1/1: POWER Pin IC1P V+ connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC2P V+ connected to +5V
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC21 SH/LD\
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC21 CLK
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC21 SER
+WARNING: Sheet 1/1: POWER Pin IC21P VCC connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC5P V+ connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC6P V+ connected to +5V
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC7 SH/LD\
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC7 CLK
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC7 SER
+WARNING: Sheet 1/1: POWER Pin IC7P VCC connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC8P V+ connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC9P V+ connected to +5V
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC10 SH/LD\
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC10 CLK
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC10 SER
+WARNING: Sheet 1/1: POWER Pin IC10P VCC connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC11P V+ connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC12P V+ connected to +5V
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC13 SH/LD\
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC13 CLK
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC13 SER
+WARNING: Sheet 1/1: POWER Pin IC13P VCC connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC3P V+ connected to +5V
+WARNING: Sheet 1/1: POWER Pin IC4P V+ connected to +5V
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC14 SH/LD\
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC14 CLK
+ERROR: Sheet 1/1: unconnected INPUT Pin: IC14 SER
+WARNING: Sheet 1/1: POWER Pin IC14P VCC connected to +5V
+ERROR: Only INPUT Pins on net COMP_A
+
+Board and schematic are consistent
+
+   16 errors
+   15 warnings
